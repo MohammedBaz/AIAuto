@@ -1,6 +1,14 @@
 import streamlit as st
+import google.generativeai as genai
 
 st.title("Echo Bot")
+
+
+genai.configure(api_key=GeminiKey)
+model = genai.GenerativeModel("gemini-1.5-flash")
+response = model.generate_content("Hi")
+st.write(response.text)
+
 
 # Initialize chat history
 if "messages" not in st.session_state:
