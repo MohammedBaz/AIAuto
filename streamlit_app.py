@@ -27,6 +27,8 @@ if prompt := st.chat_input("What is up?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
 
     #response = f"Echo: {prompt}"
+    response = model.generate_content(prompt)
+    #st.write(response.text)
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
         st.markdown(response)
