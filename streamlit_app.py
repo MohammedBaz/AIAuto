@@ -4,7 +4,7 @@ import os
 from google.generativeai import text
 
 # Access API Key from Streamlit Secrets (CRUCIAL!)
-os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
+#os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
 
 # Initialize Gemini
 text.configure(api_key=st.secrets["GeminiKey"])
