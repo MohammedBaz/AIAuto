@@ -6,7 +6,7 @@ st.title("Echo Bot")
 
 genai.configure(api_key=st.secrets["GeminiKey"])
 model = genai.GenerativeModel("gemini-1.5-flash")
-response = model.generate_content("Hi")
+response = model.generate_content(prompt)
 st.write(response.text)
 
 
@@ -26,7 +26,7 @@ if prompt := st.chat_input("What is up?"):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
 
-    response = f"Echo: {prompt}"
+    #response = f"Echo: {prompt}"
     # Display assistant response in chat message container
     with st.chat_message("assistant"):
         st.markdown(response)
