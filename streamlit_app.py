@@ -22,7 +22,12 @@ def generate_sql_query(prompt):
     Only return the SQL query without explanation.
     """
     response = model.generate_content(sql_prompt)
-    return response.text.strip()
+    sql_query = response.text.strip()
+
+    # Clean up backticks, code blocks, or 'sql' annotations
+    sql_query = sql_query.replace("```sql", "").replace("```", "").strip()
+    return sql_query
+
 
 # Streamlit UI
 st.title("Medical Institution Query Bot")
