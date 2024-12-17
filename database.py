@@ -19,11 +19,11 @@ def initialize_database():
     # Insert sample data
     cursor.execute("DELETE FROM employees")  # Clear previous data (optional)
     sample_data = [
-        ("Dr. John Smith", "Doctor", "Cardiology", 150000),
-        ("Dr. Jane Doe", "Doctor", "Neurology", 145000),
+        ("Dr. John Smith", "doctor", "Cardiology", 150000),
+        ("Dr. Jane Doe", "doctor", "Neurology", 145000),
         ("Alice Brown", "Nurse", "Cardiology", 75000),
         ("Bob White", "Technician", "Radiology", 65000),
-        ("Dr. Emily Green", "Doctor", "Pediatrics", 140000),
+        ("Dr. Emily Green", "doctor", "Pediatrics", 140000),
         ("Charlie Black", "Administrator", "Administration", 80000)
     ]
 
