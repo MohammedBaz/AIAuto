@@ -4,7 +4,7 @@ import google.generativeai as genai
 st.title("Echo Bot")
 
 
-genai.configure(api_key=GeminiKey)
+genai.configure(api_key=st.secrets["GeminiKey"])
 model = genai.GenerativeModel("gemini-1.5-flash")
 response = model.generate_content("Hi")
 st.write(response.text)
