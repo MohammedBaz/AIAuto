@@ -7,7 +7,7 @@ from google.generativeai import text
 os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
 
 # Initialize Gemini
-text.configure(api_key=os.environ["GOOGLE_API_KEY"])
+text.configure(api_key=st.secrets["GeminiKey"])
 
 # Database setup (Medical Institution Data)
 DATABASE_FILE = "medical_data.db"  # This will be created in the app's directory
