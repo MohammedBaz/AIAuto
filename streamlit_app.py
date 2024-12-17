@@ -1,12 +1,8 @@
 import streamlit as st
 import sqlite3
-import os
 from google.generativeai import text
 
 # Access API Key from Streamlit Secrets (CRUCIAL!)
-#os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
-
-# Initialize Gemini
 text.configure(api_key=st.secrets["GeminiKey"])
 
 # Database setup (Medical Institution Data)
@@ -70,14 +66,15 @@ def execute_query(sql_query):
         cursor = conn.cursor()
         cursor.execute(sql_query)
         results = cursor.fetchall()
-        return results
+        columns = [description[0] for description in cursor.description]
+        results_dict = [dict(zip(columns, row)) for row in results]
+        return results_dict
     except sqlite3.Error as e:
         st.error(f"SQL Execution Error: {e}")
         return None
     finally:
         if conn:
             conn.close()
-
 
 st.title("Medical Data Query with Gemini")
 
